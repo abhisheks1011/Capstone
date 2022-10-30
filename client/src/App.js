@@ -1,25 +1,28 @@
-// import {Link} from "react-router-dom";
+import {BrowserRouter, Routes, Route} from "react-router-dom";
 
-/**Navigation */
+import Home from "./booking/Home";
+import Login from "./auth/Login";
+import Register from "./auth/Register";
+import TopNav from "./components/TopNav";
 
+import { ToastContainer} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-// const TopNav =()=> (
-//   <div className="nav bg-dark d-flex justify-content-between">
-//     <Link className="nav-link" >Home</Link>
-//     <Link className="nav-link" >Login</Link>
-//     <Link className="nav-link" >Register</Link>
-//   </div>
-// );
 
 
 
 function App() {
   return (
-    <div>
+    <BrowserRouter>
+    <TopNav />
+    <ToastContainer position='top-center'/>
+    <Routes>
+     <Route  path="/" element={<Home/>} />
+     <Route  path="/login" element={<Login/>} />
+     <Route  path="/register" element={<Register/>} />
+    </Routes>
       
-      Home Page
-      
-    </div>
+    </BrowserRouter>
   );
 }
 
